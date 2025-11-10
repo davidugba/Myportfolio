@@ -16,16 +16,33 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
-    alert('Thank you for your message!');
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
+    
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'contact',
+          ...formData
+        }).toString()
+      });
+
+      if (response.ok) {
+        alert('Thank you for your message! I will get back to you soon.');
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+      } else {
+        alert('Oops! Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Oops! Something went wrong. Please try again.');
+    }
   };
 
   return (
@@ -57,7 +74,16 @@ const Contact = () => {
               <a href="#"><i className="fab fa-instagram"></i></a>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="contact-form">
+          <form 
+            onSubmit={handleSubmit} 
+            className="contact-form"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
             <div className="form-group">
               <input
                 type="text"

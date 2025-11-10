@@ -1,59 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 function Projects() {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await axios.get('https://api.github.com/users/davidugba/repos?sort=updated&per_page=6');
-        setProjects(response.data);
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to fetch projects');
-        setLoading(false);
-      }
-    };
-
-    fetchProjects();
-  }, []);
-
-  if (loading) {
-    return (
-      <section id="projects" className="projects-modern">
-        <div className="container">
-          <div className="projects-header-modern">
-            <span className="section-tag">Portfolio</span>
-            <h2>My Projects</h2>
-            <p className="section-subtitle">Innovative solutions built with modern technologies</p>
-          </div>
-          <div className="loading-spinner">
-            <div className="spinner"></div>
-            <p>Loading amazing projects...</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (error) {
-    return (
-      <section id="projects" className="projects-modern">
-        <div className="container">
-          <div className="projects-header-modern">
-            <span className="section-tag">Portfolio</span>
-            <h2>My Projects</h2>
-          </div>
-          <div className="error-message">
-            <p>{error}</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const projects = [
+    {
+      id: 'netlify-todolist',
+      name: 'Todo List App',
+      description: 'A modern and responsive todo list application for managing daily tasks efficiently',
+      homepage: 'https://todolist-ugbadavid.netlify.app',
+      language: 'JavaScript',
+      technologies: ['React', 'JavaScript', 'CSS3', 'Local Storage'],
+      stargazers_count: 0,
+      fork: false
+    },
+    {
+      id: 'netlify-store-menu',
+      name: 'Store Menu App',
+      description: 'An interactive store menu application for browsing and managing product catalogs',
+      homepage: 'https://david-store-menu-app.netlify.app',
+      language: 'JavaScript',
+      technologies: ['React', 'React Router', 'TheMealDB API', 'CSS3'],
+      stargazers_count: 0,
+      fork: false
+    },
+    {
+      id: 'netlify-ecommerce',
+      name: 'E-Commerce Platform',
+      description: 'A full-featured e-commerce platform with shopping cart and product management',
+      homepage: 'https://ecommerce-davidugba.netlify.app',
+      language: 'JavaScript',
+      technologies: ['React', 'Context API', 'React Router', 'CSS3'],
+      stargazers_count: 0,
+      fork: false
+    }
+  ];
 
   return (
     <section id="projects" className="projects-modern">
@@ -64,13 +43,40 @@ function Projects() {
           <p className="section-subtitle">Innovative solutions built with modern technologies</p>
         </div>
         <div className="projects-grid-modern">
-          {projects.map((project, index) => (
+          {projects.map((project, index) => {
+            // Custom icons for each project
+            const getProjectIcon = () => {
+              if (project.id === 'netlify-todolist') {
+                return (
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                );
+              } else if (project.id === 'netlify-ecommerce') {
+                return (
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                  </svg>
+                );
+              } else if (project.id === 'netlify-store-menu') {
+                return (
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+                  </svg>
+                );
+              }
+              return (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10z"/>
+                </svg>
+              );
+            };
+
+            return (
             <div key={project.id} className="project-card-modern" style={{ animationDelay: `${index * 0.1}s` }}>
               <div className="card-header">
                 <div className="project-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10z"/>
-                  </svg>
+                  {getProjectIcon()}
                 </div>
                 <div className="card-actions">
                   {project.stargazers_count > 0 && (
@@ -91,30 +97,12 @@ function Projects() {
               
               <div className="card-footer">
                 <div className="tech-stack">
-                  {project.language && (
-                    <span className="tech-badge">{project.language}</span>
-                  )}
-                  <span className="repo-info">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                    {project.fork ? 'Forked' : 'Original'}
-                  </span>
+                  {project.technologies && project.technologies.map((tech, idx) => (
+                    <span key={idx} className="tech-badge">{tech}</span>
+                  ))}
                 </div>
                 
                 <div className="card-links">
-                  <a 
-                    href={project.html_url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="link-github"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/>
-                    </svg>
-                    View Code
-                  </a>
                   {project.homepage && project.homepage.trim() !== '' && (
                     <a 
                       href={project.homepage} 
@@ -126,13 +114,14 @@ function Projects() {
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
                       </svg>
-                      Live Demo
+                      view project
                     </a>
                   )}
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
       
