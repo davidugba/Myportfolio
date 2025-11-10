@@ -16,33 +16,46 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'contact',
-          ...formData
-        }).toString()
+    // Check if running on localhost
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    
+    if (isLocalhost) {
+      alert('Form works! (This will submit to Netlify when deployed to production)');
+      console.log('Form data:', formData);
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
       });
-
-      if (response.ok) {
+      return;
+    }
+    
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...formData })
+    })
+      .then(() => {
         alert('Thank you for your message! I will get back to you soon.');
         setFormData({
           name: '',
           email: '',
           message: ''
         });
-      } else {
+      })
+      .catch(error => {
+        console.error('Error:', error);
         alert('Oops! Something went wrong. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Oops! Something went wrong. Please try again.');
-    }
+      });
   };
 
   return (
@@ -78,12 +91,8 @@ const Contact = () => {
             onSubmit={handleSubmit} 
             className="contact-form"
             name="contact"
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
           >
             <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" />
             <div className="form-group">
               <input
                 type="text"
