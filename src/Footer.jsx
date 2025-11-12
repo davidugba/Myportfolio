@@ -21,8 +21,7 @@ const Footer = () => {
           <div className="footer-social">
             <a href="#"><FontAwesomeIcon icon={['fab', 'github']} /></a>
             <a href="#"><FontAwesomeIcon icon={['fab', 'linkedin']} /></a>
-            <a href="#"><FontAwesomeIcon icon={['fab', 'twitter']} /></a>
-            <a href="#"><FontAwesomeIcon icon={['fab', 'instagram']} /></a>
+            <a href="https://wa.me/35677709894" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'whatsapp']} /></a>
           </div>
         </div>
         <div className="footer-bottom">
