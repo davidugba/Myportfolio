@@ -81,8 +81,7 @@ const Contact = () => {
             <div className="social-links">
               <a href="#"><i className="fab fa-github"></i></a>
               <a href="#"><i className="fab fa-linkedin"></i></a>
-              <a href="#"><i className="fab fa-twitter"></i></a>
-              <a href="#"><i className="fab fa-instagram"></i></a>
+              <a href="https://wa.me/35677709894" target="_blank" rel="noopener noreferrer"><i className="fab fa-whatsapp"></i></a>
             </div>
           </div>
           <form 
