@@ -1,5 +1,6 @@
 
 import React, {useState} from "react";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,34 +18,22 @@ const Contact = () => {
     }));
   };
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Check if running on localhost
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    
-    if (isLocalhost) {
-      alert('Form works! (This will submit to Netlify when deployed to production)');
-      console.log('Form data:', formData);
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
-      return;
-    }
-    
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...formData })
-    })
+    setIsSubmitting(true);
+
+    // EmailJS configuration
+    const serviceID = 'service_jb3xqyp';
+    const templateID = 'template_ej2z43s';
+    const publicKey = '79-Z69r0Y8p3qknqV';
+
+    // Send email using EmailJS
+    emailjs.send(serviceID, templateID, {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+      to_email: 'Davidchukwu920@gmail.com'
+    }, publicKey)
       .then(() => {
         alert('Thank you for your message! I will get back to you soon.');
         setFormData({
@@ -51,10 +41,12 @@ const Contact = () => {
           email: '',
           message: ''
         });
+        setIsSubmitting(false);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error:', error);
         alert('Oops! Something went wrong. Please try again.');
+        setIsSubmitting(false);
       });
   };
 
@@ -122,7 +114,9 @@ const Contact = () => {
                 required
               ></textarea>
             </div>
-            <button type="submit" className="btn-send">Send Message</button>
+            <button type="submit" className="btn-send" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
           </form>
         </div>
       </div>
