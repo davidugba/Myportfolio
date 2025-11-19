@@ -68,12 +68,6 @@ const Contact = () => {
                 <span>+35677709894</span>
               </div>
               <div>
-                <i className="fab fa-whatsapp"></i>
-                <a href="https://wa.me/35677709894" target="_blank" rel="noopener noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>
-                  +356 7770 9894
-                </a>
-              </div>
-              <div>
                 <i className="fas fa-map-marker-alt"></i>
                 <span>Valletta, Malta</span>
               </div>
