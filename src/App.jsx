@@ -9,11 +9,11 @@ import Projects from "./Projects";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faGithub, faLinkedin, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 
 
-library.add(faGithub, faLinkedin, faTwitter, faInstagram);
+library.add(faGithub, faLinkedin, faWhatsapp);
 
 
 
