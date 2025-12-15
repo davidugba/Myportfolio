@@ -1,0 +1,59 @@
+name: Deploy to S3 and CloudFront
+
+on:
+  push:
+    branches:
+      - master  # Triggers on push to master branch
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      # Step 2: Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: myreactproject/package-lock.json
+      
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        working-directory: ./myreactproject
+        run: npm ci
+      
+      # Step 4: Build React app
+      - name: Build React app
+        working-directory: ./myreactproject
+        run: npm run build
+      
+      # Step 5: Configure AWS credentials
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      
+      # Step 6: Sync dist/ folder to S3
+      - name: Sync to S3
+        working-directory: ./myreactproject
+        run: |
+          aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} --delete --cache-control max-age=31536000,public
+      
+      # Step 7: Invalidate CloudFront cache
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
+      
+      # Step 8: Deployment success notification
+      - name: Deployment complete
+        run: echo "🚀 Site is live at https://your-domain.com"
