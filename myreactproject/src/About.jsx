@@ -17,7 +17,7 @@ function About(){
                         <div className="about-details">
                             <div>
                                 <h4>Name:</h4>
-                                <p>Ugba David</p>
+                                <p>David Ugba</p>
                             </div>
                             <div>
                                 <h4>Experience:</h4>
