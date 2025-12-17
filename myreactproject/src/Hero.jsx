@@ -7,7 +7,7 @@ function Hero(){
     <section className="hero">
       <div className="container hero-container">
         <div className="hero-content">
-          <h1>Hi, I'm Ugba David</h1>
+          <h1>Hi, I'm David Ugba</h1>
           <h2>David Ugba - Cloud Engineer</h2>
           <p>I build beautiful, responsive web applications with React</p>
           <div className="hero-buttons">
