@@ -9,10 +9,11 @@ function About(){
                 <h2>About me</h2>
                 <div className="about-content">
                     <div className="about-text">
-                        <p>I'm a passionatesss Frontend developer with expertise in React.js and modern javascript.
-                            I love creating beautiful, responsive and user-friendly web applocations.
+                        <p>I'm a passionate Cloud Engineer specializing in AWS, Infrastructure as Code, and DevOps practices. 
+                           I build scalable, secure, and cost-optimized cloud infrastructure using Terraform and automated CI/CD pipelines.
                         </p>
-                        <p>With a background in design, I pay special attention to user and clean code architecture.
+                        <p>With expertise in cloud architecture and systems thinking, I focus on creating maintainable, 
+                           reproducible infrastructure that balances performance, security, and cost efficiency.
                         </p>
                         <div className="about-details">
                             <div>

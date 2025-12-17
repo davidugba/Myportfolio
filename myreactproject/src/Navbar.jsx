@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="navbar-container container">
         <img src="david.jpg" alt="david-picture" className="profile"/>
         <a href="#home" className="navbar-logo" onClick={closeMobileMenu}> 
-          Ugba David
+          David Ugba
         </a>
 
         
