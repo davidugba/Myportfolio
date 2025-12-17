@@ -1358,6 +1358,95 @@ html.dark #skills {
   animation: shine 2s infinite;
 }
 
+/* Cloud Skills Grid Layout */
+.skills-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-top: -30px;
+  margin-bottom: 50px;
+  font-style: italic;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.skill-category-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 2px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.skill-category-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(52, 152, 219, 0.15);
+  border-color: #3498db;
+}
+
+.category-title {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #ecf0f1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-icon {
+  font-size: 1.6rem;
+}
+
+.category-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-category-card .skill-item {
+  margin-bottom: 0;
+}
+
+.skill-category-card .skill-name {
+  font-weight: 500;
+  color: #34495e;
+}
+
+.skill-category-card .skill-level {
+  font-weight: 600;
+  color: #3498db;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-h2 {
+    font-size: 2rem;
+  }
+  
+  .skills-subtitle {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+  
+  .category-title {
+    font-size: 1.2rem;
+  }
+}
+
 @keyframes shine {
   0% {
     transform: translateX(-100%);
@@ -2352,6 +2441,35 @@ html.dark .skill-bar {
 body.dark .skill-progress,
 html.dark .skill-progress {
   background: linear-gradient(90deg, #3498db, #222f3e);
+}
+
+/* Dark mode for cloud skills grid */
+body.dark .skill-category-card,
+html.dark .skill-category-card {
+  background: #1a1f28;
+  border-color: #2c3e50;
+}
+
+body.dark .skill-category-card:hover,
+html.dark .skill-category-card:hover {
+  border-color: #3498db;
+  box-shadow: 0 12px 30px rgba(52, 152, 219, 0.25);
+}
+
+body.dark .category-title,
+html.dark .category-title {
+  color: #ecf0f1;
+  border-bottom-color: #2c3e50;
+}
+
+body.dark .skill-name,
+html.dark .skill-name {
+  color: #bdc3c7;
+}
+
+body.dark .skills-subtitle,
+html.dark .skills-subtitle {
+  color: #95a5a6;
 }
 
 body.dark .about-details div,
