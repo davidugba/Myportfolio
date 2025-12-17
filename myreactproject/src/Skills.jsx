@@ -15,30 +15,28 @@ const skillCategories = [
         category: "🛠️ DevOps & IaC",
         icon: "🛠️",
         skills: [
-            { name: 'Terraform', level: 70 },
-            { name: 'GitHub Actions CI/CD', level: 75 },
-            { name: 'Docker & Containers', level: 65 },
-            { name: 'Linux Administration', level: 70 },
+            { name: 'Terraform', },
+            { name: 'GitHub Actions CI/CD', },
+            { name: 'Linux Administration',},
         ]
     },
     {
         category: "💻 Programming",
         icon: "💻",
         skills: [
-            { name: 'Python (Boto3)', level: 70 },
-            { name: 'Bash Scripting', level: 65 },
-            { name: 'JavaScript/React', level: 75 },
-            { name: 'Git & Version Control', level: 80 },
+            { name: 'Bash Scripting', },
+            { name: 'JavaScript/React',},
+            { name: 'Git & Version Control', },
         ]
     },
     {
         category: "🔒 Security & Monitoring",
         icon: "🔒",
         skills: [
-            { name: 'AWS IAM & Security', level: 70 },
-            { name: 'CloudWatch Monitoring', level: 65 },
-            { name: 'Cost Optimization', level: 70 },
-            { name: 'Infrastructure Best Practices', level: 75 },
+            { name: 'AWS IAM & Security', },
+            { name: 'CloudWatch Monitoring', },
+            { name: 'Cost Optimization', },
+            { name: 'Infrastructure Best Practices',},
         ]
     }
 ];
@@ -73,8 +71,7 @@ const Skills = () => {
                                     </div>
                                 ))}
                             </div>
-                        </div>
-                    ))}
+                        </div>))}
                 </div>
             </div>
         </section>
