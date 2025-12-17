@@ -5,10 +5,10 @@ const skillCategories = [
         category: "☁️ Cloud Platforms",
         icon: "☁️",
         skills: [
-            { name: 'AWS (EC2, S3, IAM)', level: 75 },
-            { name: 'CloudFront & Route 53', level: 70 },
-            { name: 'Lambda & API Gateway', level: 65 },
-            { name: 'VPC & Networking', level: 60 },
+            { name: 'AWS (EC2, S3, IAM)', },
+            { name: 'CloudFront & Route 53', },
+            { name: 'Lambda & API Gateway', },
+            { name: 'VPC & Networking', },
         ]
     },
     {
