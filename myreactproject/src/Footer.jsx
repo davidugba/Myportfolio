@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-logo">
-            <h3>Ugba David</h3>
+            <h3>David Ugba</h3>
             <p>Frontend Developer</p>
           </div>
           <div className="footer-links">
@@ -25,7 +25,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Ugba David. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} David Ugba. All rights reserved.</p>
         </div>
       </div>
     </footer>
