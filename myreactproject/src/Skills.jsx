@@ -62,7 +62,7 @@ const Skills = () => {
                                     <div key={skillIndex} className="skill-item">
                                         <div className="skill-info">
                                             <span className="skill-name">{skill.name}</span>
-                                            <span className="skill-level">{skill.level}%</span>
+                                            <span className="skill-level">{skill.level}</span>
                                         </div>
                                         <div className="skill-bar">
                                             <div 
