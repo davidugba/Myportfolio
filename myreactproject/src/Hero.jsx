@@ -8,8 +8,8 @@ function Hero(){
       <div className="container hero-container">
         <div className="hero-content">
           <h1>Hi, I'm David Ugba</h1>
-          <h2>David Ugba - Cloud Engineer</h2>
-          <p>I build beautiful, responsive web applications with React</p>
+          <h2>Cloud Engineer | DevOps Practitioner</h2>
+          <p>Building scalable, secure infrastructure on AWS with Infrastructure as Code</p>
           <div className="hero-buttons">
             <a href="#contact" className="btn btn-primary">Get in touch</a>
             <a href="#projects" className="btn btn-secondary">View My Work</a>
