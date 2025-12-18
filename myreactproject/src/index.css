@@ -253,7 +253,6 @@ html {
   @media (max-width: 768px) {
   .navbar-logo img {
     height: 32px; /* Smaller on mobile */
-    margin-right: 40px;
   }
   
   .navbar-logo span {
