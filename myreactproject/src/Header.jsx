@@ -5,9 +5,9 @@ function Header() {
       <section id="home">
         <header className="header">
           <div className="header-content">
-            <h1>Hi, I'm David Ugba</h1>
-            <h2>Cloud Engineer | DevOps Practitioner</h2>
-            <p className="header-duties">Building scalable, secure infrastructure on AWS with Infrastructure as Code</p>
+            <h1>Welcome to My Portfolio</h1>
+            <h2>Transforming Ideas into Cloud Solutions</h2>
+            <p className="header-duties">Explore my journey in cloud engineering and infrastructure automation</p>
             <div className="header-button">
                 <a href="#projects" className="btn">view my work</a>
                 <a href="#contact" className="btn btn-outline">contact me</a>
