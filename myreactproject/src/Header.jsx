@@ -11,6 +11,7 @@ function Header() {
             <div className="header-button">
                 <a href="#projects" className="btn">view my work</a>
                 <a href="#contact" className="btn btn-outline">contact me</a>
+                <a href="/resume.pdf" download className="btn btn-primary">download cv</a>
             </div>
           </div>
           <div className="header-image">
