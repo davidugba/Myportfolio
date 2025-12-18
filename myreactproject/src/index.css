@@ -37,7 +37,7 @@ html {
   --dark-color: #2c3e50;
   --success-color: #2ecc71;
   --text-primary: #2c3e50;
-  --bg-main: #fff;
+  --bg-main: #f0f2f5;
   --hover-bg: #e4e8eb;
 }
 
@@ -294,13 +294,23 @@ html {
   }
   
 .header-content h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 20px;
   margin-top: -20px;
+  padding-bottom: 50px;
   color: var(--dark-color);
   line-height: 1.1;
   font-weight: 700;
   }
+
+.header-content h2 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: var(--dark-color);
+  font-weight: 600;
+}
 
 .header-content p{
   font-size: 1.5rem;
@@ -309,9 +319,11 @@ html {
   }
 
 .header-duties {
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #3498db;
   margin-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 50px;
   font-weight: 500;
 }
 
@@ -1140,7 +1152,7 @@ p {
 
 .about-section {
   padding: 80px 0;
-  background-color: #ffffffd7;
+  background-color: #f5f7f9;
   position: relative;
   overflow: hidden;
 }
@@ -1421,7 +1433,7 @@ html.dark #skills {
 }
 
 .skill-category-card {
-  background: #fff;
+  background: #fafbfc;
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
